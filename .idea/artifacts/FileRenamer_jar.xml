@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FileRenamer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FileRenamer_jar</output-path>
+    <root id="archive" name="FileRenamer.jar">
+      <element id="module-output" name="FileRenamer" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jaudiotagger-2.2.3.jar" path-in-jar="/" />
+      <element id="library" level="project" name="jaudiotagger-2.2.3" />
+    </root>
+  </artifact>
+</component>
