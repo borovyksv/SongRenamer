@@ -14,9 +14,6 @@ import sample.objects.Song;
 import java.io.File;
 import java.util.List;
 
-/**
- * Created by user-pc on 02.03.2017.
- */
 public class FileSystemDaoImpl implements FileSystemDao {
 
     private ObservableList<Song> songList = FXCollections.observableArrayList();
@@ -25,6 +22,9 @@ public class FileSystemDaoImpl implements FileSystemDao {
     @Override
     public void chooseFiles(ActionEvent actionEvent) {
         final FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Music files", "*.mp3", "*.mp4", "*.ogg", "*.flac", "*.wma");
+        fileChooser.getExtensionFilters().add(filter);
 
         List<File> list =
                 fileChooser.showOpenMultipleDialog(((Node) actionEvent.getSource()).getScene().getWindow());
@@ -47,7 +47,7 @@ public class FileSystemDaoImpl implements FileSystemDao {
             boolean success = input.renameTo(newName);
 
             if (!success) {
-                songList.add(new Song(input.getName(), " Нет информации, не получилось переименовать =( "));
+                songList.add(new Song(input.getName(), " НЕТ ИНФОРМАЦИИ, ПЕРЕИМЕНОВАТЬ НЕ ПОЛУЧИЛОСЬ =( "));
             } else {
                 songList.add(new Song(input.getName(), newName.getName()));
             }
